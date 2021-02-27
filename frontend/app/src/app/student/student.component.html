@@ -1,0 +1,70 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Pocetna strana</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Student</li>
+    </ol>
+</nav>
+
+<div *ngIf="korisnik.changePass == 1">
+    <div class="row" style="padding-top: 1.5cm;">
+        <div class="col-4 offset-4 col-sm-2 offset-sm-5 ">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Stara lozinka:
+            <input type="password" name="old_password" [(ngModel)]="old_password">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 offset-4 col-sm-2 offset-sm-5 ">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nova lozinka:
+            <input type="password" name="new_password" [(ngModel)]="new_password">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 offset-4 col-sm-2 offset-sm-5" style="padding-top: 0.5cm;">
+            <button (click)='changePass()' type="button" class="btn btn-dark">CHANGE</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 offset-4 col-sm-2 offset-sm-5" style="padding-top: 0.5cm;">
+            <div style="color: red;">
+                {{greska}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="korisnik.changePass == 0">
+    <div class="col-4 col-sm-4">
+        Predmeti
+        <table style="
+    border-style: groove;
+    border-width: 7px;
+    border-color: silver;">
+            <tr>
+                <th>Naziv predmeta</th>
+                <th>Smer</th>
+                <th>Semestar</th>
+                <th>Prijavi/Odjavi</th>
+            </tr>
+            <tr *ngFor="let p of predmeti">
+                <td> {{p.naziv}}</td>
+                <td>
+                    <div *ngIf="p.brSmer == 2; else justOne;">
+                        RTI,SI
+                    </div>
+                    <ng-template #justOne>
+                        {{p.smer}}
+                    </ng-template>
+                </td>
+                <td> {{p.semestar}}</td>
+                <td>
+                    <button type=" button" class="btn btn-dark" (click)='prijavi(p)'>
+                        <i class="fa fa-plus"></i>
+                    </button>
+                    <button type="button" class="btn btn-dark" (click)='odjavi(p)'>
+                        <i class="fa fa-minus"></i>
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

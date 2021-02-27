@@ -1,0 +1,86 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Pocetna strana</a></li>
+        <li class="breadcrumb-item"><a href="/admin">Admin</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Dodavanje zaposlenog</li>
+    </ol>
+</nav>
+
+<div class="row" style="padding-top: 1.5cm;">
+    <div class="col-3 offset-3 col-sm-2 offset-sm-4 ">
+        &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; Korisnicko ime:
+        <span style="color:red">*</span>
+        <input type="text" name="username" [(ngModel)]="username" placeholder="pera">
+    </div>
+    <div class="col-3 col-sm-2">
+        &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; Lozinka:
+        <span style="color:red">*</span>
+        <input type="password" name="password" [(ngModel)]="password" placeholder="lozinka">
+    </div>
+</div>
+<div class="row">
+    <div class="col-3 offset-3 col-sm-2 offset-sm-4 ">
+        &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; Ime:
+        <span style="color:red">*</span>
+        <input type="text" name="name" [(ngModel)]="name" placeholder="Pera">
+    </div>
+    <div class="col-3 col-sm-2">
+        &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Prezime:
+        <span style="color:red">*</span>
+        <input type="text" name="surname" [(ngModel)]="surname" placeholder="Peric">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3 offset-3 col-sm-2 offset-sm-4 ">
+        &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; Adresa:
+        <input type="text" name="address" [(ngModel)]="address" placeholder="Pere Perica 23">
+    </div>
+    <div class="col-3 col-sm-2">
+        &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; Telefon:
+        <input type="tel" name="phone" [(ngModel)]="phone" placeholder="+381601234567">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3 offset-3 col-sm-2 offset-sm-4 ">
+        &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; Veb:
+        <input type="text" name="web" [(ngModel)]="web" placeholder="www.pera.rs">
+    </div>
+    <div class="col-3 col-sm-2">
+        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; Zvanje:
+        <span style="color:red">*</span>
+        <select id="studije" [(ngModel)]="title">
+            <option value="Redovni profesor">Redovni profesor</option>
+            <option value="Vanredni profesor">Vanredni profesor</option>
+            <option value="Docent">Docent</option>
+            <option value="Asistent">Asistent</option>
+            <option value="Saradnik u nastavi">Saradnik u nastavi</option>
+            <option value="Istrazivac">Istrazivac</option>
+            <option value="Laboratorijski inzenjer">Laboratorijski inzenjer</option>
+            <option value="Laboratorijski tehnicar">Laboratorijski tehnicar</option>
+        </select>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3 offset-3 col-sm-2 offset-sm-4 ">
+        &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; Kabinet:
+        <span style="color:red">*</span>
+        <input type="text" name="cabinet" [(ngModel)]="cabinet" placeholder="kancelarija 909">
+    </div>
+    <div class="col-3 col-sm-2">
+        &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; Slika:
+        <input type="file" name="photo" [(ngModel)]="photo">
+    </div>
+</div>
+
+<div *ngIf="greska" class="col-4 offset-4 col-sm-2 offset-sm-5" style="color: red;">
+    {{greska}}
+</div>
+
+<div class="row">
+    <div class="col-4 offset-4 col-sm-2 offset-sm-5" style="padding-top: 0.5cm;">
+        <button (click)='add_zaposleni()' type="button" class="btn btn-dark">ADD</button>
+    </div>
+</div>

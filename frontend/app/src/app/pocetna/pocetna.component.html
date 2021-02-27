@@ -1,0 +1,102 @@
+<app-login></app-login>
+
+<div *ngIf="kor != null">
+    <div *ngIf="kor.type == 'A'">
+        <div class="row">
+            <div class="col-2 offset-5 col-sm-2 offset-sm-5">
+                <a [routerLink]="['/admin']" routerLinkActive="router-link-active">
+                    Moje funkcionalnosti
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="kor != null">
+    <div *ngIf="kor.type == 'Z'">
+        <div class="row">
+            <div class="col-2 offset-5 col-sm-2 offset-sm-5">
+                <a [routerLink]="['/zaposlen']" routerLinkActive="router-link-active">
+                    Moje funkcionalnosti
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="kor != null">
+    <div *ngIf="kor.type == 'S'">
+        <div class="row">
+            <div class="col-2 offset-5 col-sm-2 offset-sm-5">
+                <a [routerLink]="['/student']" routerLinkActive="router-link-active">
+                    Moje funkcionalnosti
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-4 offset-4 col-sm-8 offset-sm-2" style="padding-top: 0.25cm;">
+        Katedre su nastavno-naučne jedinice Fakulteta. Katedre se osnivaju u funkciji nastavnog i naučnog rada za jednu
+        ili više srodnih užih naučnih oblasti. Katedre obavljaju svoje aktivnosti na svim vrstama i nivoima studija,
+        naučno-istraživačke poslove, kao i ostale aktivnosti iz delatnosti Fakulteta.
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4 offset-4 col-sm-8 offset-sm-2" style="padding-top: 0.25cm;">
+        U sastavu katedara se obrazuju odgovarajuće laboratorije u kojima se izvode vežbe i praktičan rad sa studentima,
+        vrše istraživanja, ekspertize i druge usluge u skladu sa zakonom i opštim aktima Fakulteta.
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4 offset-4 col-sm-8 offset-sm-2" style="padding-top: 0.25cm;">
+        Katedra za računarsku tehniku i informatiku se bavi edukacijom,
+        naučno-istraživačkim i projektantskim radom u oblasti računarskog hardvera,
+        softvera i računarskih mreža.
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4 offset-4 col-sm-8 offset-sm-2" style="padding-top: 0.25cm;">
+        Na Fakultetu su organizovane sledeće katedre:
+    </div>
+    <div class="col-4 offset-4 col-sm-8 offset-sm-2" style="padding-top: 0.25cm;">
+        <ol style="padding-left: 0.4cm;">
+            <li>Katedra za elektroniku</li>
+            <li>Katedra za elektroenergetske sisteme</li>
+            <li>Katedra za energetske pretvarače i pogone</li>
+            <li>Katedra za mikroelektroniku i tehničku fiziku</li>
+            <li>Katedra za opštu elektrotehniku</li>
+            <li>Katedra za opšte obrazovanje</li>
+            <li>Katedra za primenjenu matematiku</li>
+            <li>Katedra za računarsku tehniku i informatiku</li>
+            <li>Katedra za signale i sisteme</li>
+            <li>Katedra za telekomunikacije</li>
+        </ol>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-4 offset-4 col-sm-8 offset-sm-2" style="padding-top: 0.25cm;">
+        Članovi katedre su nastavnici, saradnici i istraživači u naučnom zvanju koji su u radnom odnosu sa punim i
+        nepunim
+        radnim vremenom na Fakultetu i koji obavljaju nastavno-naučni rad iz istih ili srodnih užih naučnih oblasti.
+        Svaki
+        nastavnik, saradnik i istraživač je član samo jedne fakultetske katedre.
+    </div>
+</div>
+
+<div class="carousel-container">
+    <igx-carousel #carousel>
+        <igx-slide *ngFor="let slide of slides;">
+            <div class="image-container">
+                <img [src]="slide.src">
+            </div>
+        </igx-slide>
+    </igx-carousel>
+</div>

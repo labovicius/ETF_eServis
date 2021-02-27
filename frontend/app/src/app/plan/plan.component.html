@@ -1,0 +1,62 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Pocetna strana</a></li>
+        <li class="breadcrumb-item"><a href="/admin">Admin</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Plan angazovanja</li>
+    </ol>
+</nav>
+
+<div class="col-4 col-sm-4">
+    <h3>PLAN ANGAZOVANJA</h3>
+    <table style="
+    border-style: groove;
+    border-width: 7px;
+    border-color: silver; width: 1400px;">
+        <tr>
+            <th>Naziv predmeta</th>
+            <th>Smer</th>
+            <th>Semestar</th>
+            <th>Broj grupa za predavanja</th>
+            <th>Broj grupa za vezbe</th>
+            <th>Dodaj grupu za predavanja</th>
+            <th>Dodaj grupu za vezbe</th>
+        </tr>
+        <tr *ngFor="let p of predmeti">
+            <td> {{p.naziv}}</td>
+            <div *ngIf="p.brSmer == 2; else justOne;">
+                RTI,SI
+            </div>
+            <ng-template #justOne>
+                {{p.smer}}
+            </ng-template>
+            <td> {{p.semestar}}</td>
+            <td *ngFor="let pp of p.grupa">
+                <span *ngIf="p.grupa != 0">
+                    {{pp.p}}
+                </span>
+            </td>
+            <td *ngIf="p.grupa == 0">
+                0
+            </td>
+            <td *ngFor="let pp of p.grupa;">
+                <span *ngIf="p.grupa != 0">
+                    {{pp.v}}
+                </span>
+            </td>
+            <td *ngIf="p.grupa == 0">
+                0
+            </td>
+            <td>
+                Profesor:
+                <input type="text" name="profesorP" [(ngModel)]="p.profesorP">
+                <button style="margin-left: 0.3cm;" (click)='addP(p)' type="button" class="btn btn-dark">ADD</button>
+            </td>
+            <td>
+                Profesor:
+                <input type="text" name="profesorV" [(ngModel)]="p.profesorV">
+                <button style="margin-left: 0.3cm;" (click)='addV(p)' type="button" class="btn btn-dark">ADD</button>
+            </td>
+        </tr>
+
+    </table>
+</div>

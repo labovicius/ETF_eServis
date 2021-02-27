@@ -1,0 +1,46 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Obavestenja</li>
+    </ol>
+</nav>
+
+
+<div class="row">
+    <div class="col-sm-2">
+        <h6>Tipovi obavestenja:</h6>
+        <ul *ngFor="let n of typeNot" style="padding-top: 0.7cm;">
+            <div *ngFor="let nn of n.types">
+                <li>{{nn}}</li>
+            </div>
+        </ul>
+    </div>
+    <div class="col-sm-6">
+        <table border="6" *ngFor="let ob of obavestenja">
+            <tr *ngIf="ob.flag == 1">
+                <td style="width:150px">
+                    {{ob.dat.getDate()}}-{{ob.dat.getMonth()+1}}-{{ob.dat.getFullYear()}}
+                </td>
+                <td style="width:350px">
+                    {{ob.obavestenje}}
+                </td>
+                <td style="width:150px">
+                    {{ob.type}}
+                </td>
+
+            </tr>
+        </table>
+    </div>
+    <div class="col-sm-3 offset-sm-1">
+
+        <div class="row" style="padding-right: 3cm">
+            <img style="width: 70%; height: 80%;" src="../assets/nordeus.png">
+        </div>
+        <div class="row" style="padding-right: 3cm; padding-top: 1cm;">
+            <img style="width: 70%; height: 80%;" src="../assets/ubisoft.svg">
+        </div>
+        <div class="row" style="padding-right: 3cm; padding-top: 1cm;">
+            <img style="width: 70%; height: 80%;" src="../assets/hackathon.jpg">
+        </div>
+
+    </div>
+</div>

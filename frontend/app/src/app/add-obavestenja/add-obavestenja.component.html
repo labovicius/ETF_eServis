@@ -1,0 +1,45 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Pocetna strana</a></li>
+        <li class="breadcrumb-item"><a href="/admin">Admin</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Dodavanje obavestenja</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-sm-5">
+        <h6>Postojeci tipovi obavestenja:</h6>
+        <div *ngFor="let n of typeNot" style="padding-top: 0.3cm;">
+            <div *ngFor="let nn of n.types">
+                {{nn}}
+            </div>
+        </div>
+    </div>
+    <div class="col-4 col-sm-2" style="padding-top: 0.5cm;">
+        Dodaj novi tip obavestenja:
+        <input type="text" [(ngModel)]="novi_tip">
+    </div>
+    <div class="col-4 col-sm-2" style="padding-top: 1.1cm;">
+        <button (click)='new_type()' type="button" class="btn btn-dark">ADD</button>
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <div class="col-4 col-sm-2" style="padding-top: 0.5cm;">
+        Dodaj novo obavestenje:
+
+        <div *ngFor="let n of typeNot">
+            <select [(ngModel)]="type">
+                <option *ngFor="let nn of n.types">
+                    {{nn}}
+                </option>
+            </select>
+        </div>
+        <textarea [(ngModel)]="obavestenje"></textarea>
+    </div>
+    <div class="col-4 col-sm-2" style="padding-top: 1.1cm;">
+        <button (click)='newNotification()' type="button" class="btn btn-dark">ADD</button>
+    </div>
+</div>

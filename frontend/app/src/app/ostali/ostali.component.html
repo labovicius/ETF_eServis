@@ -1,0 +1,33 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Ostali odseci</li>
+    </ol>
+</nav>
+
+<body>
+    <div class="row">
+        <div class="col-sm-7 offset-sm-2">
+            <h5 style="text-align: center; padding-bottom: 1cm;">SEMESTAR 1</h5>
+            <table class="table" style="text-align: center; width: 900px;">
+                <thead>
+                    <tr>
+                        <th scope="col">Sifra:</th>
+                        <th scope="col">Smer:</th>
+                        <th scope="col">Predmet:</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let p of predmeti">
+                    <tr *ngIf="p.smer == 'ostali'">
+                        <td style="width: 300px;">
+                            {{p.sifra}}
+                        </td>
+                        <th scope="row" style="width: 200px;">{{p.smer}}</th>
+                        <td (click)='save(p)'>
+                            {{p.naziv}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>

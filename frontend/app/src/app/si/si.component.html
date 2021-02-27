@@ -1,0 +1,214 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Osnovne studije</a></li>
+        <li class="breadcrumb-item active" aria-current="page">SI</li>
+    </ol>
+</nav>
+
+<body>
+    <div class="row">
+        <div class="col-sm-7 offset-sm-2">
+            <h5 style="text-align: center; padding-bottom: 1cm;">SEMESTAR 1</h5>
+            <table class="table" style="text-align: center; width: 900px;">
+                <thead>
+                    <tr>
+                        <th scope="col">Sifra:</th>
+                        <th scope="col">Smer:</th>
+                        <th scope="col">Predmet:</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let p of predmeti">
+                    <tr *ngIf="p.semestar == 1">
+                        <td style="width: 300px;">
+                            {{p.sifra}}
+                        </td>
+                        <th scope="row" style="width: 200px;">SI</th>
+                        <td (click)='save(p)'>
+                            {{p.naziv}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7 offset-sm-2">
+            <h5 style="text-align: center; padding-bottom: 1cm;">SEMESTAR 2</h5>
+            <table class="table" style="text-align: center; width: 900px;">
+                <thead>
+                    <tr>
+                        <th scope="col">Sifra:</th>
+                        <th scope=" col">Smer:</th>
+                        <th scope="col">Predmet:</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let p of predmeti">
+                    <tr *ngIf="p.semestar == 2">
+                        <td style="width: 300px;">
+                            {{p.sifra}}
+                        </td>
+
+                        <th scope="row" style="width: 200px;">SI</th>
+                        <td (click)='save(p)'>
+                            {{p.naziv}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7 offset-sm-2">
+            <h5 style="text-align: center; padding-bottom: 1cm;">SEMESTAR 3</h5>
+            <table class="table" style="text-align: center;  width: 900px;">
+                <thead>
+                    <tr>
+                        <th scope="col">Sifra:</th>
+                        <th scope="col">Smer:</th>
+                        <th scope="col">Predmet:</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let p of predmeti">
+                    <tr *ngIf="p.semestar == 3">
+                        <td style="width: 300px;">
+                            {{p.sifra}}
+                        </td>
+
+                        <th scope="row" style="width: 200px;">SI</th>
+                        <td (click)='save(p)'>
+                            {{p.naziv}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7 offset-sm-2">
+            <h5 style="text-align: center; padding-bottom: 1cm;">SEMESTAR 4</h5>
+            <table class="table" style="text-align: center;  width: 900px;">
+                <thead>
+                    <tr>
+                        <th scope="col">Sifra:</th>
+                        <th scope="col">Smer:</th>
+                        <th scope="col">Predmet:</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let p of predmeti">
+                    <tr *ngIf="p.semestar == 4">
+                        <td style="width: 300px;">
+                            {{p.sifra}}
+                        </td>
+
+                        <th scope="row" style="width: 200px;">SI</th>
+                        <td (click)='save(p)'>
+                            {{p.naziv}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7 offset-sm-2">
+            <h5 style="text-align: center; padding-bottom: 1cm;">SEMESTAR 5</h5>
+            <table class="table" style="text-align: center;  width: 900px;">
+                <thead>
+                    <tr>
+                        <th scope="col">Sifra:</th>
+                        <th scope="col">Smer:</th>
+                        <th scope="col">Predmet:</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let p of predmeti">
+                    <tr *ngIf="p.semestar == 5">
+                        <td style="width: 300px;">
+                            {{p.sifra}}
+                        </td>
+
+                        <th scope="row" style="width: 200px;">SI</th>
+                        <td (click)='save(p)'>
+                            {{p.naziv}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7 offset-sm-2">
+            <h5 style="text-align: center; padding-bottom: 1cm;">SEMESTAR 6</h5>
+            <table class="table" style="text-align: center;  width: 900px;">
+                <thead>
+                    <tr>
+                        <th scope="col">Sifra:</th>
+                        <th scope="col">Smer:</th>
+                        <th scope="col">Predmet:</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let p of predmeti">
+                    <tr *ngIf="p.semestar == 6">
+                        <td style="width: 300px;">
+                            {{p.sifra}}
+                        </td>
+
+                        <th scope="row" style="width: 200px;">SI</th>
+                        <td (click)='save(p)'>
+                            {{p.naziv}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7 offset-sm-2">
+            <h5 style="text-align: center; padding-bottom: 1cm;">SEMESTAR 7</h5>
+            <table class="table" style="text-align: center;  width: 900px;">
+                <thead>
+                    <tr>
+                        <th scope="col">Sifra:</th>
+                        <th scope="col">Smer:</th>
+                        <th scope="col">Predmet:</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let p of predmeti">
+                    <tr *ngIf="p.semestar == 7">
+                        <td style="width: 300px;">
+                            {{p.sifra}}
+                        </td>
+                        <th scope="row" *ngIf="p.smer != null;" style="width: 200px;">SI</th>
+                        <td (click)='save(p)'>
+                            {{p.naziv}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7 offset-sm-2">
+            <h5 style="text-align: center; padding-bottom: 1cm;">SEMESTAR 8</h5>
+            <table class="table" style="text-align: center;  width: 900px;">
+                <thead>
+                    <tr>
+                        <th scope="col">Sifra:</th>
+                        <th scope="col">Smer:</th>
+                        <th scope="col">Predmet:</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let p of predmeti">
+                    <tr *ngIf="p.semestar == 8">
+                        <td style="width: 300px;">
+                            {{p.sifra}}
+                        </td>
+                        <th scope="row" style="width: 200px;">SI</th>
+                        <td (click)='save(p)'>
+                            {{p.naziv}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>

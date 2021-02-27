@@ -1,0 +1,324 @@
+<div class="row">
+    <div class="col-sm-2">
+        <ul>
+            <li>
+                <a href="/">Pocetna</a>
+            </li>
+            <li style="padding-top: 1cm;">
+                <a href="/zaposlen-profil">Profil</a>
+            </li>
+            <li style="padding-top: 1cm;">
+                <a href="/zaposlen_predmet">Predmeti</a>
+            </li>
+            <li style="padding-top: 1cm;">
+                <a href="/zaposlen_obavestenje">Obavestenja</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-sm-8">
+        <select [(ngModel)]="pred" style="margin-right: 1cm;">
+            <option *ngFor="let p of z.predmeti">
+                {{p.naziv}}
+            </option>
+        </select>
+        <button (click)='load()' type="button" class="btn btn-dark">LOAD</button>
+
+        <div *ngIf="predmet != null">
+            <div class="content-wrap" igxLayout>
+                <igx-nav-drawer id="navigation" #drawer [isOpen]="true" [pin]="true" [pinThreshold]="0">
+                    <ng-template igxDrawer>
+                        <nav>
+                            <span igxDrawerItem [isHeader]="true">{{ predmet.naziv }} </span>
+
+                            <span *ngFor="let item of navItems" igxDrawerItem [active]="item.text === selected"
+                                igxRipple (click)="navigate(item)">
+                                <igx-icon fontSet="material">{{ item.name }}</igx-icon>
+                                <span>{{ item.text }}</span>
+                            </span>
+                        </nav>
+                    </ng-template>
+                </igx-nav-drawer>
+
+                <main igxFlex>
+                    <span igxButton="icon" igxToggleAction="navigation">
+                        <igx-icon fontSet="material">menu</igx-icon>
+                    </span>
+                    <h6> {{predmet.naziv}} </h6>
+                    <h5><b> {{selected}} </b></h5>
+
+                    <div *ngIf="selected == 'Obavestenja o predmetu'">
+                        <table *ngIf="predmet.obavestenja != 0; else noOb">
+                            <div *ngFor="let ob of predmet.obavestenja" style="padding-top: 1cm;">
+                                <div style="color: black; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                                    *ngIf="ob.flag != 0; else noDate">
+                                    <i>
+                                        <input type="date" [(ngModel)]="ob.datum">
+                                        <textarea style="margin-left: 0.5cm; width: 250px; height: 150px;"
+                                            [(ngModel)]="ob.text"></textarea>
+                                    </i>
+                                    <span *ngIf="ob.putanja != null">
+                                        <a href="{{ob.putanja}}">
+                                            link
+                                        </a>
+                                    </span>
+                                    {{ob.nastavnik}}
+                                    <button style="margin-left: 1cm;" (click)='saveO(predmet)' type="button"
+                                        class="btn btn-dark">Save</button>
+                                    <button style="margin-left: 1cm;" (click)='deleteO(predmet,ob)' type="button"
+                                        class="btn btn-dark">Delete</button>
+
+                                </div>
+
+                                <ng-template #noDate>
+                                    <input type="date" [(ngModel)]="ob.datum">
+                                    <textarea style="margin-left: 0.5cm; width: 250px; height: 150px;"
+                                        [(ngModel)]="ob.text"></textarea>
+                                    <span *ngIf="ob.putanja != null">
+                                        <a href="{{ob.putanja}}">
+                                            link
+                                        </a>
+                                    </span>
+                                </ng-template>
+                            </div>
+                        </table>
+                        <ng-template #noOb>
+                            Ne postoji sekcija Obavestenja za ovaj predmet!
+                        </ng-template>
+                    </div>
+                    <div *ngIf="selected == 'Informacije o predmetu'">
+                        <table *ngIf="predmet.informacije != null; else noInfo" border="1">
+                            <tr>
+                                <td>Tip</td>
+                                <td>Sifra</td>
+                                <td>Fond casova</td>
+                                <td>ESPB</td>
+                            </tr>
+                            <tr *ngFor="let ob of predmet.informacije" style="text-align: center;">
+                                <td>
+                                    <select [(ngModel)]="ob.tip">
+                                        <option>obavezan</option>
+                                        <option>izborni</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" [(ngModel)]="predmet.sifra">
+                                </td>
+                                <td>
+                                    <input type="text" [(ngModel)]="ob.fond">
+                                </td>
+                                <td>
+                                    <input type="text" [(ngModel)]="ob.poeni">
+                                </td>
+                            </tr>
+                        </table>
+                        <div *ngIf="predmet.informacije != null; else noInfo" style="padding-top: 0.5cm;">
+                            <div *ngFor="let ob of predmet.informacije">
+                                <textarea [(ngModel)]="ob.cilj"></textarea>
+                                <button style="margin-left: 1cm;" (click)='save(predmet)' type="button"
+                                    class="btn btn-dark">Save</button>
+                                <div>
+                                    <b *ngIf="ob.predavanja != null">
+                                        Predavanja
+                                    </b>
+
+                                    <div *ngFor="let o of ob.predavanja">
+                                        P {{o.grupa}}-------------------{{o.nastavnik}}
+                                        <br>
+                                    </div>
+                                </div>
+                                <div>
+                                    <b *ngIf="ob.vezbe != null">
+                                        Vezbe
+                                    </b>
+                                    <div *ngFor="let o of ob.vezbe">
+                                        V {{o.grupa}}-------------------{{o.nastavnik}}
+                                        <br>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <ng-template #noInfo>
+                            Ne postoji sekcija Informacije za ovaj predmet!
+                        </ng-template>
+                    </div>
+                    <div *ngIf="selected == 'Predavanja'">
+                        <table *ngIf="predmet.predavanja != null; else noPr">
+                            Prezentacije sa predavanja
+                            <tr *ngFor="let ob of predmet.predavanja">
+                                <td>
+                                    <a href="{{ob.putanja}}">
+                                        {{ob.text}}
+                                    </a>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-dark"
+                                        (click)='deletePredavanja(predmet,ob.text,ob.putanja)'>
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                </td>
+                                <br>
+                            </tr>
+                            Dodaj novo:
+                            <td>
+                                <input type="file" [(ngModel)]="putanjaP">
+                                <button type="button" class="btn btn-dark" (click)='addPredavanja(predmet)'>
+                                    ADD
+                                </button>
+                            </td>
+                        </table>
+                        <ng-template #noPr>
+                            Ne postoji sekcija Predavanja za ovaj predmet!
+                        </ng-template>
+                    </div>
+                    <div *ngIf="selected == 'Vezbe'">
+                        <table *ngIf="predmet.vezbe != null; else noVez">
+                            Prezentacije sa vezbi
+                            <tr *ngFor="let ob of predmet.vezbe">
+                                <td>
+                                    <a href="{{ob.putanja}}">
+                                        {{ob.text}}
+                                    </a>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-dark"
+                                        (click)='deleteVezbe(predmet,ob.text,ob.putanja)'>
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                </td>
+                                <br>
+                            </tr>
+
+                            Dodaj novo:
+                            <td>
+                                <input type="file" [(ngModel)]="putanjaV">
+                                <button type="button" class="btn btn-dark" (click)='addVezbe(predmet)'>
+                                    ADD
+                                </button>
+                            </td>
+                        </table>
+                        <ng-template #noVez>
+                            Ne postoji sekcija Vezbe za ovaj predmet!
+                        </ng-template>
+                    </div>
+                    <div *ngIf="selected == 'Ispitna pitanja'">
+                        <table *ngIf="predmet.ispit != null; else noIspit">
+                            <tr>
+                                <td>Ispitni rok</td>
+                                <td>Fajl</td>
+                            </tr>
+                            <tr *ngFor="let ob of predmet.ispit">
+                                <td>
+                                    {{ob.text}}
+                                </td>
+                                <td>
+                                    <a href="{{ob.putanja}}">
+                                        {{ob.putanja}}
+                                    </a>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-dark"
+                                        (click)='deleteIspit(predmet,ob.text,ob.putanja)'>
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                </td>
+                                <br>
+                            </tr>
+
+                            Dodaj novo:
+                            <td>
+                                <input type="file" [(ngModel)]="putanjaI">
+                                <button type="button" class="btn btn-dark" (click)='addIspit(predmet)'>
+                                    ADD
+                                </button>
+                            </td>
+                        </table>
+                        <ng-template #noIspit>
+                            Ne postoji sekcija Ispitna pitanja za ovaj predmet!
+                        </ng-template>
+                    </div>
+                    <div *ngIf="selected == 'Laboratorija'">
+                        <table *ngIf="predmet.laboratorija != null; else noLab">
+                            <b>Informacije o laboratorijama:</b>
+                            <tr *ngFor="let ob of predmet.laboratorija">
+                                <td>
+                                    <textarea [(ngModel)]="ob.informacije">
+                                    </textarea>
+                                    <button style="margin-left: 1cm;" (click)='change(predmet)' type="button"
+                                        class="btn btn-dark">LOAD</button>
+
+                                </td>
+                                <br>
+                            </tr>
+                            <b>Fajlovi:</b>
+                            <tr *ngFor="let ob of predmet.laboratorija;">
+                                <div *ngFor="let o of ob.materijali ">
+                                    <a href="{{o}}">
+                                        {{o}}
+                                    </a>
+                                    <td>
+                                        <button type="button" class="btn btn-dark"
+                                            (click)='deleteLab(predmet,ob.text,ob.putanja)'>
+                                            <i class="fa fa-minus"></i>
+                                        </button>
+                                    </td>
+                                </div>
+                                <br>
+                            </tr>
+
+                            Dodaj novo:
+                            <input type="file" [(ngModel)]="putanjaL">
+                            <button type="button" class="btn btn-dark" (click)='addLab(predmet)'>
+                                ADD
+                            </button>
+
+                        </table>
+                        <ng-template #noLab>
+                            Ne postoji sekcija Laboratorija za ovaj predmet!
+                        </ng-template>
+                    </div>
+                    <div *ngIf="selected == 'Projekat / Domaci zadaci'">
+                        <table *ngIf="predmet.projekat != null; else noProj">
+                            <b>Informacije o projektu:</b>
+                            <tr *ngFor="let ob of predmet.projekat">
+                                <td>
+                                    <textarea [(ngModel)]="ob.informacije">
+                                    </textarea>
+                                    <button style="margin-left: 1cm;" (click)='change(predmet)' type="button"
+                                        class="btn btn-dark">LOAD</button>
+                                </td>
+                                <br>
+                            </tr>
+                            <b>Fajlovi:</b>
+                            <tr *ngFor="let ob of predmet.projekat">
+                                <div *ngFor="let o of ob.materijali ">
+                                    <a href="{{o}}">
+                                        {{o}}
+                                    </a>
+                                    <td>
+                                        <button type="button" class="btn btn-dark"
+                                            (click)='deleteProjekat(predmet,ob.text,ob.putanja)'>
+                                            <i class="fa fa-minus"></i>
+                                        </button>
+                                    </td>
+                                </div>
+                                <br>
+                            </tr>
+                        </table>
+
+                        Dodaj novo:
+                        <input type="file" [(ngModel)]="putanjaPro">
+                        <button type="button" class="btn btn-dark" (click)='addProjekat(predmet)'>
+                            ADD
+                        </button>
+
+                        <ng-template #noProj>
+                            Ne postoji sekcija Projekat / Domaci zadaci za ovaj predmet!
+                        </ng-template>
+                    </div>
+
+                </main>
+            </div>
+        </div>
+    </div>
+</div>

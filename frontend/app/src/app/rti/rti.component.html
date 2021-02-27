@@ -1,0 +1,177 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Osnovne studije</a></li>
+        <li class="breadcrumb-item active" aria-current="page">RTI</li>
+    </ol>
+</nav>
+
+<body>
+    <div class="row">
+        <div class="col-sm-7 offset-sm-2">
+            <h5 style="text-align: center; padding-bottom: 1cm;">SEMESTAR 1</h5>
+            <table class="table" style="text-align: center; width: 900px;">
+                <thead>
+                    <tr>
+                        <th scope="col">Smer:</th>
+                        <th scope="col">Predmet:</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let p of predmeti">
+                    <tr *ngIf="p.semestar == 1">
+                        <th scope="row" style="width: 200px;">RTI</th>
+                        <td (click)='save(p)'>
+                            {{p.naziv}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7 offset-sm-2">
+            <h5 style="text-align: center; padding-bottom: 1cm;">SEMESTAR 2</h5>
+            <table class="table" style="text-align: center; width: 900px;">
+                <thead>
+                    <tr>
+                        <th scope=" col">Smer:</th>
+                        <th scope="col">Predmet:</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let p of predmeti">
+                    <tr *ngIf="p.semestar == 2">
+                        <th scope="row" style="width: 200px;">RTI</th>
+                        <td (click)='save(p)'>
+                            {{p.naziv}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7 offset-sm-2">
+            <h5 style="text-align: center; padding-bottom: 1cm;">SEMESTAR 3</h5>
+            <table class="table" style="text-align: center;  width: 900px;">
+                <thead>
+                    <tr>
+                        <th scope="col">Smer:</th>
+                        <th scope="col">Predmet:</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let p of predmeti">
+                    <tr *ngIf="p.semestar == 3">
+                        <th scope="row" style="width: 200px;">RTI</th>
+                        <td (click)='save(p)'>
+                            {{p.naziv}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7 offset-sm-2">
+            <h5 style="text-align: center; padding-bottom: 1cm;">SEMESTAR 4</h5>
+            <table class="table" style="text-align: center;  width: 900px;">
+                <thead>
+                    <tr>
+                        <th scope="col">Smer:</th>
+                        <th scope="col">Predmet:</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let p of predmeti">
+                    <tr *ngIf="p.semestar == 4">
+                        <th scope="row" style="width: 200px;">RTI</th>
+                        <td (click)='save(p)'>
+                            {{p.naziv}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7 offset-sm-2">
+            <h5 style="text-align: center; padding-bottom: 1cm;">SEMESTAR 5</h5>
+            <table class="table" style="text-align: center;  width: 900px;">
+                <thead>
+                    <tr>
+                        <th scope="col">Smer:</th>
+                        <th scope="col">Predmet:</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let p of predmeti">
+                    <tr *ngIf="p.semestar == 5">
+                        <th scope="row" style="width: 200px;">RTI</th>
+                        <td (click)='save(p)'>
+                            {{p.naziv}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7 offset-sm-2">
+            <h5 style="text-align: center; padding-bottom: 1cm;">SEMESTAR 6</h5>
+            <table class="table" style="text-align: center;  width: 900px;">
+                <thead>
+                    <tr>
+                        <th scope="col">Smer:</th>
+                        <th scope="col">Predmet:</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let p of predmeti">
+                    <tr *ngIf="p.semestar == 6">
+                        <th scope="row" style="width: 200px;">RTI</th>
+                        <td (click)='save(p)'>
+                            {{p.naziv}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7 offset-sm-2">
+            <h5 style="text-align: center; padding-bottom: 1cm;">SEMESTAR 7</h5>
+            <table class="table" style="text-align: center;  width: 900px;">
+                <thead>
+                    <tr>
+                        <th scope="col">Smer:</th>
+                        <th scope="col">Predmet:</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let p of predmeti">
+                    <tr *ngIf="p.semestar == 7">
+                        <th scope="row" style="width: 200px;">RTI</th>
+                        <td (click)='save(p)'>
+                            {{p.naziv}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7 offset-sm-2">
+            <h5 style="text-align: center; padding-bottom: 1cm;">SEMESTAR 8</h5>
+            <table class="table" style="text-align: center;  width: 900px;">
+                <thead>
+                    <tr>
+                        <th scope="col">Smer:</th>
+                        <th scope="col">Predmet:</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let p of predmeti">
+                    <tr *ngIf="p.semestar == 8">
+                        <th scope="row" style="width: 200px;">RTI</th>
+                        <td (click)='save(p)'>
+                            {{p.naziv}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>

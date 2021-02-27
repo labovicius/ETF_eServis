@@ -1,0 +1,22 @@
+.content-wrap {
+    display: flex;
+    height: 100%;
+}
+
+main {
+    height: 600px;
+    overflow: auto;
+    padding: 16px;
+}
+h5 {
+    padding: 8px 0;
+}
+
+h6 {
+    padding: 8px 0;
+    font-size: 25pt;
+}
+:host {
+    display: block;
+    height: calc(100% - 56px);
+}

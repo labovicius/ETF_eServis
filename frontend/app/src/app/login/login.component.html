@@ -1,0 +1,38 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Pocetna strana</li>
+    </ol>
+</nav>
+
+<div class="container-fluid" style="padding-top: 0.3cm;">
+    <div class="row" *ngIf="ulogovan == 0">
+        <div class="col-4 offset-4 col-sm-2 offset-sm-5" style="font-family: fantasy; font-size: xx-large;">
+            LOGOVANJE
+        </div>
+    </div>
+    <div class="row" *ngIf="ulogovan == 0">
+        <div class="col-4 offset-4 col-sm-2 offset-sm-5" style="padding-top: 0.5cm;">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Korisnicko ime:
+            <input type="text" name="username" [(ngModel)]="username">
+        </div>
+    </div>
+    <div class="row" *ngIf="ulogovan == 0">
+        <div class="col-4 offset-4 col-sm-2 offset-sm-5">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lozinka:
+            <input type="password" name="password" [(ngModel)]="password">
+        </div>
+        <div *ngIf="poruka != null" class="col-4 offset-4 col-sm-2 offset-sm-5" style="color: red;">
+            {{poruka}}
+        </div>
+    </div>
+    <div class="row" *ngIf="ulogovan == 0">
+        <div class="col-4 offset-4 col-sm-2 offset-sm-5" style="padding-top: 0.25cm;">
+            Novi ste korisnik? <a [routerLink]="['/register']" routerLinkActive="router-link-active">Registruj se</a>
+        </div>
+    </div>
+    <div class="row" *ngIf="ulogovan == 0">
+        <div class="col-4 offset-4 col-sm-2 offset-sm-5" style="padding-top: 0.25cm;">
+            <button (click)='login()' type="button" class="btn btn-dark">LOGIN</button>
+        </div>
+    </div>
+</div>

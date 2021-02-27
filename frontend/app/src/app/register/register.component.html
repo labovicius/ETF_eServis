@@ -1,0 +1,59 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Pocetna strana</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Registracija</li>
+    </ol>
+</nav>
+
+<div class="container-fluid" style="padding-top: 1cm;">
+    <div class="row">
+        <div class="col-4 offset-4 col-sm-2 offset-sm-5" style="font-family: fantasy; font-size: xx-large;">
+            REGISTROVANJE
+        </div>
+    </div>
+
+    <div class="row" style="padding-top: 2.5cm;">
+        <div class="col-3 offset-3 col-sm-2 offset-sm-4 ">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Korisnicko ime:
+            <input type="text" name="username" [(ngModel)]="username">
+        </div>
+        <div class="col-3 col-sm-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lozinka:
+            <input type="password" name="password" [(ngModel)]="password">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 offset-3 col-sm-2 offset-sm-4 ">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ime:
+            <input type="text" name="name" [(ngModel)]="name">
+        </div>
+        <div class="col-3 col-sm-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Prezime:
+            <input type="text" name="surname" [(ngModel)]="surname">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-3 offset-3 col-sm-2 offset-sm-4 ">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Indeks:
+            <input type="text" name="index" [(ngModel)]="index">
+        </div>
+        <div class="col-3 col-sm-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tip:
+            <select id="studije" [(ngModel)]="studije">
+                <option value="d" selected>Osnovne akademske</option>
+                <option value="m">Master akademske</option>
+                <option value="p">Doktorske studije</option>
+            </select>
+        </div>
+    </div>
+
+    <div *ngIf="greska" class="col-4 offset-4 col-sm-2 offset-sm-5" style="color: red;">
+        {{greska}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-4 offset-4 col-sm-2 offset-sm-5" style="padding-top: 0.5cm;">
+        <button (click)='register()' type="button" class="btn btn-dark">REGISTER</button>
+    </div>
+</div>

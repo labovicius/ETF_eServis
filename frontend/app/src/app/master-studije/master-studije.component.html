@@ -1,0 +1,84 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Master studije</li>
+    </ol>
+</nav>
+
+
+<div class="row" style="padding-top: 1cm; padding-left: 1cm;">
+    <div class="col-3 col-sm-3">
+        <h6> Spisak izbornih područja - modula </h6>
+        <ul style="list-style-type: d; padding-top: 0.5cm;  padding-left: 0.3cm;">
+            <li>Audio i video komunikacije</li>
+            <li>Biomedicinsko i ekološko inženjerstvo</li>
+            <li>Elektroenergetski sistemi</li>
+            <li>Elektronika</li>
+            <li>Mikrotalasna tehnika</li>
+            <li>Nanoelektronika i fotonika</li>
+            <li>Opšteobrazovni predmeti</li>
+            <li>Primenjena matematika</li>
+            <li>Računarska tehnika i informatika</li>
+            <li>Signali i sistemi</li>
+            <li>
+                Sistemsko inženjerstvo i radio komunikacije</li>
+            <li>Softversko inženjerstvo</li>
+            <li>Energetska efikasnost</li>
+        </ul>
+    </div>
+    <div class="col-3 col-sm-3">
+        <div class="row">
+            <div class="col-sm-7 offset-sm-2">
+                <h5 style="text-align: center; padding-bottom: 1cm;">SEMESTAR 1</h5>
+                <table class="table" style="text-align: center; width: 900px;">
+                    <thead>
+                        <tr>
+                            <th scope="col">Sifra:</th>
+                            <th scope="col">Smer:</th>
+                            <th scope="col">Predmet:</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let p of predmeti">
+                        <tr *ngIf="p.semestar == 1 && p.smer == 'master'">
+                            <td style="width: 300px;">
+                                {{p.sifra}}
+                            </td>
+                            <th scope="row" style="width: 200px;">
+                                Master
+                            </th>
+                            <td (click)='save(p)'>
+                                {{p.naziv}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-7 offset-sm-2">
+                <h5 style="text-align: center; padding-bottom: 1cm;">SEMESTAR 2</h5>
+                <table class="table" style="text-align: center; width: 900px;">
+                    <thead>
+                        <tr>
+                            <th scope="col">Sifra:</th>
+                            <th scope=" col">Smer:</th>
+                            <th scope="col">Predmet:</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let p of predmeti">
+                        <tr *ngIf="p.semestar == 2 && p.smer == 'master'">
+                            <td style="width: 300px;">
+                                {{p.sifra}}
+                            </td>
+                            <th scope="row" style="width: 200px;">
+                                Master
+                            </th>
+                            <td (click)='save(p)'>
+                                {{p.naziv}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

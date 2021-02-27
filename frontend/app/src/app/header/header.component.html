@@ -1,0 +1,97 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" [routerLink]="['/']" routerLinkActive="router-link-active">
+        <img src="assets/etf.jpg" alt="logo" style="height: 60px; width: 70px;">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav_coll">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="nav_coll">
+        <ul class="navbar-nav">
+
+            <li>
+                <button [routerLink]="['/']" routerLinkActive="router-link-active" igxButton="raised"
+                    igxButtonColor="white" igxButtonBackground="#808080" igxRipple="white">
+                    Pocetna
+                </button>
+            </li>
+
+            <li>
+                <button [routerLink]="['/zaposleni']" routerLinkActive="router-link-active" igxButton="raised"
+                    igxButtonColor="white" igxButtonBackground="#808080" igxRipple="white">
+                    Zaposleni
+                </button>
+            </li>
+
+            <li>
+                <button [routerLink]="['/obavestenja']" routerLinkActive="router-link-active" igxButton="raised"
+                    igxButtonColor="white" igxButtonBackground="#808080" igxRipple="white">
+                    Obavestenja
+                </button>
+            </li>
+
+            <li>
+                <button igxButton="raised" igxButtonColor="white" igxButtonBackground="#808080" igxRipple="white"
+                    [igxToggleAction]="dropdown" [igxDropDownItemNavigation]="dropdown">
+                    Osnovne studije *
+                </button>
+                <igx-drop-down #dropdown>
+                    <igx-drop-down-item (click)="forward(o.field)" *ngFor="let o of odsek">
+                        {{ o.field }}
+                    </igx-drop-down-item>
+                </igx-drop-down>
+            </li>
+
+            <li>
+                <button [routerLink]="['/master_studije']" routerLinkActive="router-link-active" igxButton="raised"
+                    igxButtonColor="white" igxButtonBackground="#808080" igxRipple="white">
+                    Master studije
+                </button>
+            </li>
+
+            <li>
+                <button [routerLink]="['/projekti_zaposleni']" routerLinkActive="router-link-active" igxButton="raised"
+                    igxButtonColor="white" igxButtonBackground="#808080" igxRipple="white">
+                    Projekti
+                </button>
+            </li>
+
+            <li>
+                <button igxButton="raised" igxButtonColor="white" igxButtonBackground="#808080" igxRipple="white"
+                    [igxToggleAction]="dropdown2" [igxDropDownItemNavigation]="dropdown2">
+                    Nauka *
+                </button>
+                <igx-drop-down #dropdown2>
+                    <igx-drop-down-item (click)="forward(n.field)" *ngFor="let n of nauka">
+                        {{ n.field}}
+                    </igx-drop-down-item>
+                </igx-drop-down>
+            </li>
+
+            <li>
+                <button [routerLink]="['/kontakt']" routerLinkActive="router-link-active" igxButton="raised"
+                    igxButtonColor="white" igxButtonBackground="#808080" igxRipple="white">
+                    Kontakt
+                </button>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+
+<div *ngIf="korisnik != null">
+    <div class="row">
+        <div class="col-1 offset-10 col-sm-1 offset-sm-10" style="padding-top: 0.5cm;">
+
+            Dobrodosli,
+            <div *ngIf="korisnik.name != null;else ispisi">
+                {{korisnik.name}} {{korisnik.surname}}
+            </div>
+            <ng-template #ispisi>
+                admine
+            </ng-template>
+        </div>
+        <div class="col-1 col-sm-1" style="padding-top: 0.5cm;">
+            <button (click)='logout()' type="button" class="btn btn-dark">Log out</button>
+        </div>
+    </div>
+</div>

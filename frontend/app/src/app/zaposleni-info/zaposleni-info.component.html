@@ -1,0 +1,25 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/zaposleni">Zaposleni</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Zaposleni informacije</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-sm-3">
+        <div class="card" style="width: 45rem; margin-left: 10cm;">
+            <h4 style="text-align: center;">
+                <b>{{zaposlen.name}}</b> &nbsp;
+                <b>{{zaposlen.surname}}</b>
+            </h4>
+            <h5 style="text-align: center;"> {{zaposlen.title}}</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{zaposlen.cabinet}}</li>
+                <li class="list-group-item">{{zaposlen.phone}}</li>
+                <li class="list-group-item">
+                    <a href="mailto:{{zaposlen.username}}@etf.bg.ac.rs"> {{zaposlen.username}}@etf.bg.ac.rs </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

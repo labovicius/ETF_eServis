@@ -1,0 +1,57 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Pocetna strana</a></li>
+        <li class="breadcrumb-item"><a href="/admin">Admin</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Dodavanje studenta</li>
+    </ol>
+</nav>
+
+<div class="row" style="padding-top: 1.5cm;">
+    <div class="col-3 offset-3 col-sm-2 offset-sm-4 ">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Korisnicko ime:
+        <span style="color:red">*</span>
+        <input type="text" name="username" placeholder="ppGGBBBBx@student.etf.bg.ac.rs" [(ngModel)]="username">
+    </div>
+    <div class="col-3 col-sm-2">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lozinka:
+        <span style="color:red">*</span>
+        <input type="password" name="password" placeholder="lozinka" [(ngModel)]="password">
+    </div>
+</div>
+<div class="row">
+    <div class="col-3 offset-3 col-sm-2 offset-sm-4 ">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ime:
+        <span style="color:red">*</span>
+        <input type="text" name="name" placeholder="Pera" [(ngModel)]="name">
+    </div>
+    <div class="col-3 col-sm-2">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Prezime:
+        <span style="color:red">*</span>
+        <input type="text" name="surname" placeholder="Peric" [(ngModel)]="surname">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3 offset-3 col-sm-2 offset-sm-4 ">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Indeks:
+        <span style="color:red">*</span>
+        <input type="text" name="index" placeholder="GGGG/BBBB" [(ngModel)]="index">
+    </div>
+    <div class="col-3 col-sm-2">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tip:
+        <span style="color:red">*</span>
+        <select id="studije" [(ngModel)]="studije">
+            <option value="d">Osnovne akademske studije (d)</option>
+            <option value="m">Master akademske studije (m)</option>
+            <option value="p">Doktorske studije (p)</option>
+        </select>
+    </div>
+</div>
+<div *ngIf="greska" class="col-4 offset-4 col-sm-3 offset-sm-5" style="color: red;">
+    {{greska}}
+</div>
+<div class="row">
+    <div class="col-4 offset-4 col-sm-2 offset-sm-5" style="padding-top: 0.5cm;">
+        <button (click)='add_student()' type="button" class="btn btn-dark">ADD</button>
+    </div>
+</div>

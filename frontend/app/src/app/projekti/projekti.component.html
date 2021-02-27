@@ -1,0 +1,59 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Nauka</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Projekti</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-8 col-sm-8">
+        <u>
+            <h5 style="padding-left: 1cm;"> Projekti zaposlenih:</h5>
+        </u>
+        <ul style="list-style-type:circle; padding-top: 0.6cm; padding-left: 1cm;">
+            <a (click)="find('nbosko')" [routerLink]="['/zaposleni-info']" routerLinkActive="router-link-active">
+                <li>
+                    Projekat za prekvalifikacije u IT sektoru
+                </li>
+            </a>
+            <a (click)="find('drazen.draskovic')" [routerLink]="['/zaposleni-info']"
+                routerLinkActive="router-link-active">
+                <li>Softversko inzenjerstvo i nove
+                    tehnologije u racunarstvu (SINTRA)
+                </li>
+            </a>
+            <a (click)="find('nbosko')" [routerLink]="['/zaposleni-info']" routerLinkActive="router-link-active">
+                <li>
+                    Strucno-ekspertska analiza
+                </li>
+            </a>
+            <a (click)="find('nbosko')" [routerLink]="['/zaposleni-info']" routerLinkActive="router-link-active">
+                <li>
+                    Realizacija Office 365
+                    platforme u AMRES centru
+                </li>
+            </a>
+            <a (click)="find('marko.misic')" [routerLink]="['/zaposleni-info']" routerLinkActive="router-link-active">
+                <li>
+                    Obuka za program DIgSiLENT
+                </li>
+            </a>
+            <a (click)="find('mvt')" [routerLink]="['/zaposleni-info']" routerLinkActive="router-link-active">
+                <li>
+                    Konsultacije za Huawei
+                </li>
+            </a>
+            <a (click)="find('pavle.vuletic')" [routerLink]="['/zaposleni-info']" routerLinkActive="router-link-active">
+                <li>
+                    Sudska vestacenja SBB
+                </li>
+            </a>
+            <a (click)="find('mvt')" [routerLink]="['/zaposleni-info']" routerLinkActive="router-link-active">
+                <li>
+                    Sistem za automatsku detekciju ispravnosti kuglica-serijska proizvodnja
+                </li>
+            </a>
+
+        </ul>
+    </div>
+</div>

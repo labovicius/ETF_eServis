@@ -1,0 +1,15 @@
+ul { 
+    list-style: none;
+ }
+  
+  li {	
+      display: inline;
+  }
+
+  li a:hover {
+    background-color: #111111;
+  }
+  
+  table{
+    text-align: center;
+  }

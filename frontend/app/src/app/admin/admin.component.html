@@ -1,0 +1,138 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Pocetna strana</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Admin</li>
+    </ol>
+</nav>
+
+<body>
+    <a style="padding-right: 0.5cm;" [routerLink]="['/add_student']" routerLinkActive="router-link-active">
+        Dodaj studenta
+    </a>
+    |
+    <a style="padding-left: 0.5cm; padding-right: 0.5cm;" [routerLink]="['/add_zaposleni']"
+        routerLinkActive="router-link-active">
+        Dodaj zaposlenog
+    </a>
+    |
+    <a style="padding-left: 0.5cm; padding-right: 0.5cm;" [routerLink]="['/add_predmet']">
+        Dodaj predmet
+    </a>
+    |
+    <a style="padding-left: 0.5cm; padding-right: 0.5cm;" [routerLink]="['/plan']"
+        routerLinkActive="router-link-active">
+        Plan angazovanja
+    </a>
+    |
+    <a style="padding-left: 0.5cm;  padding-right: 0.5cm;" [routerLink]="['/add_student_predmet']"
+        routerLinkActive="router-link-active">
+        Dodaj studenta na predmet
+    </a>
+    |
+    <a style="padding-left: 0.5cm;  padding-right: 0.5cm;" [routerLink]="['/aktivnost']"
+        routerLinkActive="router-link-active">
+        Promeni aktivnost
+    </a>
+    |
+    <a style="padding-left: 0.5cm;" [routerLink]="['/add_obavestenja']" routerLinkActive="router-link-active">
+        Rad sa obavestenjima
+    </a>
+</body>
+<br />
+<div class="row">
+    <div class="col-4  col-sm-4">
+        Studenti
+        <table style="
+        border-style: groove;
+        border-width: 7px;
+        border-color: silver;">
+            <tr>
+                <th>Ime i prezime</th>
+                <th>Indeks</th>
+                <th>Edit/Delete</th>
+
+            </tr>
+            <tr *ngFor="let s of studenti">
+                <td>
+                    {{s.name}}
+                    {{s.surname}}
+                </td>
+                <td>
+                    {{s.index}}
+                </td>
+                <td>
+                    <button type=" button" class="btn btn-dark" (click)='editS(s)'>
+                        <i class="fa fa-user-plus"></i>
+                    </button>
+                    <button type="button" class="btn btn-dark" (click)='deleteS(s)'>
+                        <i class="fa fa-user-times"></i>
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-4  col-sm-4">
+        Zaposleni
+        <table style="
+        border-style: groove;
+        border-width: 7px;
+        border-color: silver;">
+            <tr>
+                <th>Ime i prezime</th>
+                <th>Titula</th>
+                <th>Edit/Delete</th>
+            </tr>
+            <tr *ngFor="let z of zaposleni">
+                <td>
+                    {{z.name}}
+                    {{z.surname}}
+                </td>
+                <td>
+                    {{z.title}}
+                </td>
+                <td>
+                    <button type=" button" class="btn btn-dark" (click)='editZ(z)'>
+                        <i class="fa fa-user-plus"></i>
+                    </button>
+                    <button type="button" class="btn btn-dark" (click)='deleteZ(z)'>
+                        <i class="fa fa-user-times"></i>
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-4 col-sm-4">
+        Predmeti
+        <table style="
+        border-style: groove;
+        border-width: 7px;
+        border-color: silver;">
+            <tr>
+                <th>Naziv predmeta</th>
+                <th>Smer</th>
+                <th>Semestar</th>
+                <th>Edit/Delete</th>
+            </tr>
+            <tr *ngFor="let p of predmeti">
+                <td> {{p.naziv}}</td>
+                <td>
+                    <div *ngIf="p.brSmer == 2; else justOne;">
+                        RTI,SI
+                    </div>
+                    <ng-template #justOne>
+                        {{p.smer}}
+                    </ng-template>
+                </td>
+                <td> {{p.semestar}}</td>
+                <td>
+                    <button type=" button" class="btn btn-dark" (click)='editP(p)'>
+                        <i class="fa fa-plus"></i>
+                    </button>
+                    <button type="button" class="btn btn-dark" (click)='deleteP(p)'>
+                        <i class="fa fa-minus"></i>
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Pocetna strana</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Zaposlen</li>
+    </ol>
+</nav>
+
+<div *ngIf="zaposlen.changePass == 1">
+    <div class="row" style="padding-top: 1.5cm;">
+        <div class="col-4 offset-4 col-sm-2 offset-sm-5 ">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Stara lozinka:
+            <input type="password" name="old_password" [(ngModel)]="old_password">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 offset-4 col-sm-2 offset-sm-5 ">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nova lozinka:
+            <input type="password" name="new_password" [(ngModel)]="new_password">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 offset-4 col-sm-2 offset-sm-5" style="padding-top: 0.5cm;">
+            <button (click)='changePass()' type="button" class="btn btn-dark">CHANGE</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 offset-4 col-sm-2 offset-sm-5" style="padding-top: 0.5cm;">
+            <div style="color: red;">
+                {{greska}}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="row" *ngIf="zaposlen.changePass == 0">
+    <div class="col-sm-2">
+        <ul>
+            <li>
+                <a href="/">Pocetna</a>
+            </li>
+            <li style="padding-top: 1cm;">
+                <a href="/zaposlen-profil">Profil</a>
+            </li>
+            <li style="padding-top: 1cm;">
+                <a href="/zaposlen_predmet">Predmeti</a>
+            </li>
+            <li style="padding-top: 1cm;">
+                <a href="/zaposlen_obavestenje">Obavestenja</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-sm-4">
+        {{zaposlen.name}}
+    </div>
+</div>

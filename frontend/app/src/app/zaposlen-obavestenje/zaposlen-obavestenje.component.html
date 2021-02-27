@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-sm-2">
+        <ul>
+            <li>
+                <a href="/">Pocetna</a>
+            </li>
+            <li style="padding-top: 1cm;">
+                <a href="/zaposlen-profil">Profil</a>
+            </li>
+            <li style="padding-top: 1cm;">
+                <a href="/zaposlen_predmet">Predmeti</a>
+            </li>
+            <li style="padding-top: 1cm;">
+                <a href="/zaposlen_obavestenje">Obavestenja</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-sm-4">
+        Naslov vesti:
+        <div class="row">
+            <input type="text" [(ngModel)]="naslov">
+        </div>
+        Unesite tekst vesti:
+        <div class="row">
+            <textarea [(ngModel)]="tekst"></textarea>
+        </div>
+        Izaberite predmet:
+        <div class="row">
+            <select [(ngModel)]="predmet" style="margin-right: 1cm;">
+                <option *ngFor="let p of z.predmeti">
+                    {{p.naziv}}
+                </option>
+            </select>
+        </div>
+        Unesite datum:
+        <div class="row">
+            <input type="date" [(ngModel)]="datum">
+        </div>
+        Dodaj fajl:
+        <div class="row">
+            <input type="file" [(ngModel)]="file">
+        </div>
+        <div class="row" style="padding-top: 1cm;">
+            <button (click)='add()' type="button" class="btn btn-dark">ADD</button>
+        </div>
+    </div>
+</div>
+<div *ngIf="predmetic != null">
+    {{predmetic.naziv}}
+</div>

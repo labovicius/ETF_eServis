@@ -1,0 +1,268 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Pocetna strana</a></li>
+        <li class="breadcrumb-item"><a href="/admin">Admin</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Azuriranje</li>
+    </ol>
+</nav>
+
+<div *ngIf="student != null">
+    <div class="row" style="padding-top: 1.0cm;">
+        <div class="col-3 offset-3 col-sm-2 offset-sm-4 ">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Korisnicko ime:
+            <input type="text" name="username" [(ngModel)]="username" placeholder="{{student.username}}">
+        </div>
+        <div class=" col-3 col-sm-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lozinka:
+            <input type="password" name="password" [(ngModel)]="password" placeholder="{{student.password}}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 offset-3 col-sm-2 offset-sm-4 ">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ime:
+            <input type="text" name="name" [(ngModel)]="name" placeholder="{{student.name}}">
+        </div>
+        <div class=" col-3 col-sm-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Prezime:
+            <input type="text" name="surname" [(ngModel)]="surname" placeholder="{{student.surname}}">
+        </div>
+    </div>
+
+    <div class=" row">
+        <div class="col-3 offset-3 col-sm-2 offset-sm-4 ">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Indeks:
+            <input type="text" name="index" [(ngModel)]="index" placeholder="{{student.index}}">
+        </div>
+        <div class=" col-3 col-sm-2">
+            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tip:
+            <select id="studije" [(ngModel)]="type_st">
+                <option value=" d" selected>Osnovne akademske</option>
+                <option value="m">Master akademske</option>
+                <option value="p">Doktorske studije</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 offset-4 col-sm-2 offset-sm-5" style="padding-top: 0.5cm;">
+            <button (click)='changeS()' type="button" class="btn btn-dark">Change</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="zaposleni != null">
+    <div class="row" style="padding-top: 2.5cm;">
+        <div class="col-3 offset-3 col-sm-2 offset-sm-4 ">
+            &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; Korisnicko ime:
+            <span style="color:red">*</span>
+            <input type="text" name="username" [(ngModel)]="username2" placeholder="{{zaposleni.username}}">
+        </div>
+        <div class="col-3 col-sm-2">
+            &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; Lozinka:
+            <span style="color:red">*</span>
+            <input type="password" name="password" [(ngModel)]="password2" placeholder="{{zaposleni.password}}">
+        </div>
+    </div>
+    <div class=" row">
+        <div class="col-3 offset-3 col-sm-2 offset-sm-4 ">
+            &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; Ime:
+            <span style="color:red">*</span>
+            <input type="text" name="name" [(ngModel)]="name2" placeholder="{{zaposleni.name}}">
+        </div>
+        <div class=" col-3 col-sm-2">
+            &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Prezime:
+            <span style="color:red">*</span>
+            <input type="text" name="surname" [(ngModel)]="surname2" placeholder="{{zaposleni.surname}}">
+        </div>
+    </div>
+
+    <div class=" row">
+        <div class="col-3 offset-3 col-sm-2 offset-sm-4 ">
+            &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; Adresa:
+            <input type="text" name="address" [(ngModel)]="address" placeholder="{{zaposleni.address}}">
+        </div>
+        <div class="col-3 col-sm-2">
+            &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; Telefon:
+            <input type="tel" name="phone" [(ngModel)]="phone" placeholder="{{zaposleni.phone}}">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-3 offset-3 col-sm-2 offset-sm-4 ">
+            &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; Veb:
+            <input type="text" name="web" [(ngModel)]="web" placeholder="{{zaposleni.web}}">
+        </div>
+        <div class="col-3 col-sm-2">
+            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; Zvanje:
+            <span style="color:red">*</span>
+            <select id="studije" [(ngModel)]="title">
+                <option value="Redovni profesor">Redovni profesor</option>
+                <option value="Vanredni profesor">Vanredni profesor</option>
+                <option value="Docent">Docent</option>
+                <option value="Asistent">Asistent</option>
+                <option value="Saradnik u nastavi">Saradnik u nastavi</option>
+                <option value="Istrazivac">Istrazivac</option>
+                <option value="Laboratorijski inzenjer">Laboratorijski inzenjer</option>
+                <option value="Laboratorijski tehnicar">Laboratorijski tehnicar</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-3 offset-3 col-sm-2 offset-sm-4 ">
+            &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; Kabinet:
+            <span style="color:red">*</span>
+            <input type="text" name="cabinet" [(ngModel)]="cabinet" placeholder="{{zaposleni.cabinet}}">
+        </div>
+        <div class="col-3 col-sm-2">
+            &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; Slika:
+            <input type="file" name="photo" [(ngModel)]="photo">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4 offset-4 col-sm-2 offset-sm-5" style="padding-top: 0.5cm;">
+            <button (click)='changeZ()' type="button" class="btn btn-dark">Change</button>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="predmet != null">
+
+    <div class="row" style="padding-top: 0.5cm;">
+        <div class="col-3 offset-3 col-sm-2 offset-sm-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Naziv:
+            <input type="text" name="naziv" [(ngModel)]="naziv" placeholder="{{predmet.naziv}}">
+        </div>
+        <div class="col-3 col-sm-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sifra predmeta:
+            <input type="text" name="sifra" [(ngModel)]="sifra" placeholder="{{predmet.sifra}}">
+        </div>
+        <div class="col-3 col-sm-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Semestar:
+            <input type="text" name="semestar" [(ngModel)]="semestar" placeholder="{{predmet.semestar}}">
+        </div>
+    </div>
+
+    <div class="row" style="padding-top: 0.5cm;">
+        <div class="col-3 col-sm-2 offset-sm-3">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Smer:
+            <select id="smer" [(ngModel)]="smer">
+                <option value="SI" selected>SI</option>
+                <option value="RTI">RTI</option>
+                <option value="ostali">OSTALI</option>
+            </select>
+        </div>
+
+        <div class="col-3 col-sm-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tip:
+            <select id="type" [(ngModel)]="type">
+                <option value="obavezni" selected>Obavezni</option>
+                <option value="izborni">Izborni</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-3 offset-3 col-sm-2 offset-sm-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cilj:
+            <textarea name="text" [(ngModel)]="cilj"></textarea>
+        </div>
+        <div class="col-3 col-sm-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ESPB:
+            <input type="text" name="poeni" [(ngModel)]="poeni" placeholder="6">
+        </div>
+
+        <div class="col-3 col-sm-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fond:
+            <input type="text" name="fond" [(ngModel)]="fond" placeholder="2 + 2 + 2">
+        </div>
+    </div>
+
+    <div class="row" style="padding-top: 1cm;">
+        <div class="col-3 offset-3 col-sm-2 offset-sm-2">
+            Obavestenje:
+        </div>
+        <div class="col-3 offset-3 col-sm-2 offset-sm-2">
+            Laboratorija:
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 offset-3 col-sm-2 offset-sm-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Text:
+            <textarea name="text" [(ngModel)]="textO"></textarea>
+        </div>
+        <div class="col-3 col-sm-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fajl:
+            <input type="file" name="putanja" [(ngModel)]="putanjaO">
+        </div>
+        <div class="col-3 col-sm-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Text:
+            <textarea name="text" [(ngModel)]="textL"></textarea>
+        </div>
+        <div class="col-3 col-sm-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fajl:
+            <input type="file" name="putanja" [(ngModel)]="putanjaL">
+        </div>
+
+    </div>
+    <div class="row" style="padding-top: 1cm;">
+        <div class="col-3 offset-3 col-sm-2 offset-sm-2">
+            Projekat:
+        </div>
+        <div class="col-3 offset-3 col-sm-2 offset-sm-2">
+            Ispitna pitanja:
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 offset-3 col-sm-2 offset-sm-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Text:
+            <textarea name="text" [(ngModel)]="textP"></textarea>
+        </div>
+        <div class="col-3 col-sm-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fajl:
+            <input type="file" name="putanja" [(ngModel)]="putanjaP">
+        </div>
+        <div class="col-3 col-sm-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Text:
+            <textarea name="text" [(ngModel)]="textI"></textarea>
+        </div>
+        <div class="col-3 col-sm-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fajl:
+            <input type="file" name="putanja" [(ngModel)]="putanjaI">
+        </div>
+    </div>
+
+    <div class="row" style="padding-top: 1cm;">
+        <div class="col-3 offset-3 col-sm-2 offset-sm-2">
+            Predavanja:
+        </div>
+        <div class="col-3 offset-3 col-sm-2 offset-sm-2">
+            Vezbe:
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 offset-3 col-sm-2 offset-sm-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Text:
+            <textarea name="text" [(ngModel)]="textPr"></textarea>
+        </div>
+        <div class="col-3 col-sm-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fajl:
+            <input type="file" name="putanja" [(ngModel)]="putanjaPr">
+        </div>
+        <div class="col-3 col-sm-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Text:
+            <textarea name="text" [(ngModel)]="textV"></textarea>
+        </div>
+        <div class="col-3 col-sm-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fajl:
+            <input type="file" name="putanja" [(ngModel)]="putanjaV">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4 offset-4 col-sm-2 offset-sm-5" style="padding-top: 0.5cm;">
+            <button (click)='changeP()' type="button" class="btn btn-dark">Change</button>
+        </div>
+    </div>
+</div>

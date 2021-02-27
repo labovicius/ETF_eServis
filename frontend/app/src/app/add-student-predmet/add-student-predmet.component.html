@@ -1,0 +1,49 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Pocetna strana</a></li>
+        <li class="breadcrumb-item"><a href="/admin">Admin</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Dodavanje studenata na predmet</li>
+    </ol>
+</nav>
+
+<div class="col-4 col-sm-4">
+    <h3>Dodavanje studenata na predmet</h3>
+    <table style="
+    border-style: groove;
+    border-width: 7px;
+    border-color: silver; width: 1000px;">
+        <tr>
+            <th>Naziv predmeta</th>
+            <th>Smer</th>
+            <th>Semestar</th>
+            <th>Dodaj studenta na predmet</th>
+        </tr>
+        <tr *ngFor="let p of predmeti">
+            <td> {{p.naziv}}</td>
+            <td>
+                <div *ngIf="p.brSmer == 2; else justOne;">
+                    RTI,SI
+                </div>
+                <ng-template #justOne>
+                    {{p.smer}}
+                </ng-template>
+
+            </td>
+            <td> {{p.semestar}}</td>
+            <td>
+                <div *ngFor="let s of p.student">
+                    <div *ngIf="s.odobreno == 0">
+                        {{s.naziv}}
+                        <button type=" button" class="btn btn-dark" (click)='odobravanje(p,s.naziv)'>
+                            <i class="fa fa-plus"></i>
+                        </button>
+                        <button type="button" class="btn btn-dark" (click)='odbijanje(p,s.naziv)'>
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+    </table>
+</div>

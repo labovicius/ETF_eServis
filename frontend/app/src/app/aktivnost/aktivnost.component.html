@@ -1,0 +1,78 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Pocetna strana</a></li>
+        <li class="breadcrumb-item"><a href="/admin">Admin</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Aktivnost</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-4  col-sm-4">
+        Studenti
+        <table style="
+        border-style: groove;
+        border-width: 7px;
+        border-color: silver;">
+            <tr>
+                <th>Ime i prezime</th>
+                <th>Indeks</th>
+                <th>Status</th>
+                <th>+/-</th>
+
+            </tr>
+            <tr *ngFor="let s of studenti">
+                <td>
+                    {{s.name}}
+                    {{s.surname}}
+                </td>
+                <td>
+                    {{s.index}}
+                </td>
+                <td>
+                    {{s.status}}
+                </td>
+                <td>
+                    <button type=" button" class="btn btn-dark" (click)='plus(s)'>
+                        <i class="fa fa-user-plus"></i>
+                    </button>
+                    <button type="button" class="btn btn-dark" (click)='minus(s)'>
+                        <i class="fa fa-user-times"></i>
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-4  col-sm-4">
+        Zaposleni
+        <table style="
+        border-style: groove;
+        border-width: 7px;
+        border-color: silver;">
+            <tr>
+                <th>Ime i prezime</th>
+                <th>Titula</th>
+                <th>Status</th>
+                <th>+/-</th>
+            </tr>
+            <tr *ngFor="let z of zaposleni">
+                <td>
+                    {{z.name}}
+                    {{z.surname}}
+                </td>
+                <td>
+                    {{z.title}}
+                </td>
+                <td>
+                    {{z.status}}
+                </td>
+                <td>
+                    <button type=" button" class="btn btn-dark" (click)='plus(z)'>
+                        <i class="fa fa-user-plus"></i>
+                    </button>
+                    <button type="button" class="btn btn-dark" (click)='minus(z)'>
+                        <i class="fa fa-user-times"></i>
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
